@@ -1,0 +1,11 @@
+.btn-icon {
+  padding: 0rem 1rem;
+  color: #ffffff !important;
+  outline: none !important;
+  box-shadow: none !important;
+  i {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
