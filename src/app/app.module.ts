@@ -7,6 +7,7 @@ import { DegreesModule } from './degrees/degrees.module';
 import { CertificationsModule } from './certifications/certifications.module';
 import { StudentsModule } from './students/students.module';
 import { FacultyModule } from './faculty/faculty.module';
+import { UsersModule } from './users/users.module';
 
 import { AppComponent } from './app.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
@@ -28,7 +29,8 @@ import { HomeComponent } from './home/home.component';
     DegreesModule,
     CertificationsModule,
     StudentsModule,
-    FacultyModule
+    FacultyModule,
+    UsersModule
   ],
   providers: [],
   bootstrap: [

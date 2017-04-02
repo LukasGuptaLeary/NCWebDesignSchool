@@ -5,6 +5,7 @@ import { DegreesComponent } from './degrees/degrees.component';
 import { CertificationsComponent } from './certifications/certifications.component';
 import { StudentsComponent } from './students/students.component';
 import { FacultyComponent } from './faculty/faculty.component';
+import { UsersComponent } from './users/users.component';
 
 const appRouting: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -12,7 +13,8 @@ const appRouting: Routes = [
   { path: 'degrees', component: DegreesComponent },
   { path: 'certifications', component: CertificationsComponent },
   { path: 'students', component: StudentsComponent },
-  { path: 'faculty', component: FacultyComponent }
+  { path: 'faculty', component: FacultyComponent },
+  { path: 'users', component: UsersComponent }
 ];
 
 export const Routing = RouterModule.forRoot(appRouting);
