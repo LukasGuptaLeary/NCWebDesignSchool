@@ -2,24 +2,11 @@
 
 <div class="container-fluid">
   <div class="row">
-    <nav class="col-sm-3 col-md-2 hidden-xs-down bg-faded sidebar">
-      <ul class="nav nav-pills flex-column">
-        <li class="nav-item">
-          <a class="nav-link active" href="#">Overview <span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Reports</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Analytics</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Export</a>
-        </li>
-      </ul>
+    <nav class="col-sm-3 bg-faded hidden-xs-down sidebar">
+        <img class="img-fluid" src="/images/mtcc.png" alt="Card image cap">
     </nav>
 
-    <main class="col-sm-9 offset-sm-3 col-md-10 offset-md-2 pt-3">
+    <main class="col-sm-9 offset-sm-3 pt-3">
       <router-outlet></router-outlet>
     </main>
   </div>
