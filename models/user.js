@@ -1,6 +1,7 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 var mongooseUniqueValidator = require('mongoose-unique-validator');
+var fieldRemover = require('mongoose-field-remover');
 
 var schema = new Schema({
   firstName: { type: String, required: true },
@@ -14,13 +15,10 @@ var schema = new Schema({
     phone: { type: String, default: '' },
     link: { type: String, default: '' }
   },
-  status: {
-    faculty: { type: Boolean, default: false },
-    student: { type: Boolean, default: false },
-    admin: { type: Boolean, default: false },
-  }
+  admin: { type: Boolean, default: false }
 });
 
 schema.plugin(mongooseUniqueValidator);
+schema.plugin(fieldRemover, "password");
 
 module.exports = mongoose.model('User', schema);

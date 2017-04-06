@@ -5,6 +5,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
+var verify = require('./private/verify');
 
 var app = express();
 
@@ -24,6 +25,8 @@ app.use(function (req, res, next) {
   res.setHeader('Access-Control-Allow-Methods', 'POST, GET, PATCH, DELETE, OPTIONS');
   next();
 });
+
+app.use(verify);
 
 var normalizedPath = require("path").join(__dirname, "api");
 

@@ -6,6 +6,10 @@ var jwt = require('jsonwebtoken');
 
 var User = require('../models/user');
 
+router.get('/', function(req, res, next) {
+  res.json({user: req.user});
+});
+
 router.post('/', function (req, res, next) {
   var user = new User({
     firstName: req.body.firstName,
@@ -49,12 +53,11 @@ router.post('/auth/login', function(req, res, next) {
       });
     }
     var cert = fs.readFileSync('./private/keys/private.key');
-    var token = jwt.sign({user: user}, cert, {algorithm: 'RS256', expiresIn: 7200});
+    var token = jwt.sign({user: user.toJSON}, cert, {algorithm: 'RS256', expiresIn: 7200});
     res.status(200).json({
       message: 'Successfully logged in',
       token: token,
-      userId: user._id,
-      admin: user.admin
+      user: user.toJSON()
     });
   });
 });
