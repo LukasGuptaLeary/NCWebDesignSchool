@@ -7,6 +7,8 @@ import { StudentsComponent } from './students/students.component';
 import { FacultyComponent } from './faculty/faculty.component';
 import { UsersComponent } from './users/users.component';
 
+import { UsersRoutes } from './users/users.routing';
+
 const appRouting: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
@@ -14,7 +16,7 @@ const appRouting: Routes = [
   { path: 'certifications', component: CertificationsComponent },
   { path: 'students', component: StudentsComponent },
   { path: 'faculty', component: FacultyComponent },
-  { path: 'users', component: UsersComponent }
+  { path: 'users', component: UsersComponent, children: UsersRoutes }
 ];
 
 export const Routing = RouterModule.forRoot(appRouting);

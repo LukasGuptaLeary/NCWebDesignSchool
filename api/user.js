@@ -16,10 +16,11 @@ router.post('/', function (req, res, next) {
     lastName: req.body.lastName,
     password: bcrypt.hashSync(req.body.password, 10),
     email: req.body.email,
-    status: req.body.status
+    admin: req.body.admin
   });
   user.save(function(err, result) {
     if (err) {
+      console.log(err);
       return res.status(500).json({
         title: 'An error occurred',
         error: err
