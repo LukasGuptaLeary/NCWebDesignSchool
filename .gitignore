@@ -43,3 +43,4 @@ Thumbs.db
 
 # RSA keys
 /private/keys
+/private/config.mongo.js

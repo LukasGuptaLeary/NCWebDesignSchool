@@ -6,10 +6,11 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var verify = require('./private/verify');
+var mongoConfig = require('./private/config.mongo');
 
 var app = express();
 
-mongoose.connect('localhost:27017/ncwds');
+mongoose.connect(mongoConfig.mongodb);
 
 app.use(favicon(path.join(__dirname, 'images', 'favicon.ico')));
 app.use(logger('dev'));
@@ -36,7 +37,7 @@ require("fs").readdirSync(normalizedPath).forEach(function(file) {
   app.use(path, require("./api/" + file.split(".")[0]));
 });
 
-app.use(function(req, res, next) {
+app.use(function(req, res) {
   res.sendFile(path.join(__dirname + '/dist/index.html'));
 });
 

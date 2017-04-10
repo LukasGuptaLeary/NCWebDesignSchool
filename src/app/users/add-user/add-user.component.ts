@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 import { UsersService } from '../users.service';
-import { User, Profile } from '../user';
+import { User } from '../user';
 
 @Component({
   selector: 'app-add-user',
@@ -20,9 +20,9 @@ export class AddUserComponent implements OnInit {
       this.myForm.value.password,
       this.myForm.value.firstName,
       this.myForm.value.lastName,
-      new Date(),
-      new Profile('', '', '', ''),
-      true);
+      this.myForm.value.admin,
+      this.myForm.value.student,
+      this.myForm.value.faculty);
     this.usersService.addUser(user)
       .subscribe(
         data => console.log(data),

@@ -5,7 +5,7 @@
   "scripts": {
     "ng": "ng",
     "start": "npm run build && node ./bin/www",
-    "build": "ng build",
+    "build": "ng build && openssl genrsa -out ./private/keys/private.key 2048 && openssl rsa -in ./private/keys/private.key -outform PEM -pubout -out ./private/keys/public.key",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"

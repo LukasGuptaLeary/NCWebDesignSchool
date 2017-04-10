@@ -17,7 +17,7 @@ export class LoginComponent implements OnInit {
 
   onSubmit() {
     const user = new User(this.myForm.value.email, this.myForm.value.password);
-    this.usersService.signin(user)
+    this.usersService.login(user)
       .subscribe(
         data => {
           localStorage.setItem('token', data.token);

@@ -3,6 +3,7 @@ var router = express.Router();
 var fs = require('fs');
 var bcrypt = require('bcryptjs');
 var jwt = require('jsonwebtoken');
+var mongoose = require('mongoose');
 
 var User = require('../models/user');
 
@@ -11,14 +12,16 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/', function (req, res, next) {
+  console.log(req.body);
   var user = new User({
     firstName: req.body.firstName,
     lastName: req.body.lastName,
-    password: bcrypt.hashSync(req.body.password, 10),
     email: req.body.email,
+    password: bcrypt.hashSync(req.body.password, 10),
     admin: req.body.admin
   });
   user.save(function(err, result) {
+    console.log("saving");
     if (err) {
       console.log(err);
       return res.status(500).json({
@@ -34,6 +37,7 @@ router.post('/', function (req, res, next) {
 });
 
 router.post('/auth/login', function(req, res, next) {
+  console.log(mongoose.connection.readyState);
   User.findOne({email: req.body.email}, function(err, user) {
     if (err) {
       return res.status(500).json({
