@@ -28,6 +28,25 @@ export class UsersService {
       });
   }
 
+  getUser() {
+    const headers = new Headers({'Content-Type': 'application/json'});
+    const token = localStorage.getItem('token') ? localStorage.getItem('token') : '';
+    headers.append('Authorization', token);
+
+    return this.http.get('http://localhost:3000/api/user', { headers: headers })
+      .map((response: Response) => {
+        const us = response.json().user;
+        let user: User;
+        if (us) {
+          user = new User(us.email, '', us.firstName, us.lastName, us.admin, us.student.isStudent, us.faculty.isFaculty, us.id);
+        }
+        return user;
+      })
+      .catch((error: Response) => {
+        return Observable.throw(error.json());
+      });
+  }
+
   logout() {
     localStorage.clear();
   }
