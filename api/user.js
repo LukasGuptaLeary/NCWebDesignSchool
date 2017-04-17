@@ -58,7 +58,7 @@ router.post('/auth/login', function(req, res, next) {
       });
     }
     var cert = fs.readFileSync('./private/keys/private.key');
-    var token = jwt.sign({user: user.toJSON}, cert, {algorithm: 'RS256', expiresIn: 7200});
+    var token = jwt.sign({user: user.toJSON()}, cert, {algorithm: 'RS256', expiresIn: 7200});
     res.status(200).json({
       message: 'Successfully logged in',
       token: token,
