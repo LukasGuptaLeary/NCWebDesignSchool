@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
 import { DegreesModule } from './degrees/degrees.module';
 import { CertificationsModule } from './certifications/certifications.module';
 import { StudentsModule } from './students/students.module';
@@ -30,7 +32,8 @@ import { HomeComponent } from './home/home.component';
     CertificationsModule,
     StudentsModule,
     FacultyModule,
-    UsersModule
+    UsersModule,
+    NgbModule.forRoot()
   ],
   providers: [],
   bootstrap: [

@@ -6,7 +6,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./nav-bar.component.scss']
 })
 export class NavBarComponent implements OnInit {
-  title = 'NCWebDesignSchool';
+  public title = 'NCWebDesignSchool';
+  public isCollapsed = true;
+
+  public toggle(bool?: boolean) {
+    if (typeof bool === 'boolean') {
+      this.isCollapsed = bool;
+    } else {
+      this.isCollapsed = !this.isCollapsed;
+    }
+  }
 
   constructor() { }
 

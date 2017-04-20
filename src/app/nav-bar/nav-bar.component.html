@@ -1,29 +1,30 @@
 <nav class="navbar navbar-toggleable-md navbar-inverse fixed-top bg-inverse">
-    <button class="navbar-toggler navbar-toggler-right hidden-lg-up" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+  <!-- data-toggle="collapse" data-target="#navbarsExampleDefault" -->
+    <button class="navbar-toggler navbar-toggler-right hidden-lg-up" type="button" (click)="toggle()" [attr.aria-expanded]="!isCollapsed" aria-controls="navMenu" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
-    <a class="navbar-brand" [routerLink]="['']">{{ title }}</a>
+    <a class="navbar-brand" [routerLink]="['']" (click)="toggle(true)">{{ title }}</a>
 
-    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+    <div class="collapse navbar-collapse" id="navMenu" [ngbCollapse]="isCollapsed">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item" routerLinkActive="active">
-                <a class="nav-link" [routerLink]="['home']">Home</a>
+                <a class="nav-link" (click)="toggle(true)" [routerLink]="['home']">Home</a>
             </li>
             <li class="nav-item" routerLinkActive="active">
-                <a class="nav-link" [routerLink]="['degrees']">Degrees</a>
+                <a class="nav-link" (click)="toggle(true)" [routerLink]="['degrees']">Degrees</a>
             </li>
             <li class="nav-item" routerLinkActive="active">
-                <a class="nav-link" [routerLink]="['certifications']">Certifications</a>
+                <a class="nav-link" (click)="toggle(true)" [routerLink]="['certifications']">Certifications</a>
             </li>
             <li class="nav-item" routerLinkActive="active">
-              <a class="nav-link" [routerLink]="['students']">Students</a>
+              <a class="nav-link" (click)="toggle(true)" [routerLink]="['students']">Students</a>
             </li>
             <li class="nav-item" routerLinkActive="active">
-              <a class="nav-link" [routerLink]="['faculty']">Faculty</a>
+              <a class="nav-link" (click)="toggle(true)" [routerLink]="['faculty']">Faculty</a>
             </li>
         </ul>
         <hr class="hidden-lg-up" />
-        <a class="btn btn-icon my-2 my-sm-0" routerLinkActive="active" [routerLink]="['users']"><i class="fa fa-user-circle-o fa-2x" aria-hidden="true"></i></a>
-        <a class="btn btn-icon my-2 my-sm-0" href="https://www.facebook.com/NCWebDesignSchool/" target="_blank"><i class="fa fa-facebook-official fa-2x" aria-hidden="true"></i></a>
+        <a class="btn btn-icon my-2 my-sm-0" routerLinkActive="active" [routerLink]="['users']" (click)="toggle(true)"><i class="fa fa-user-circle-o fa-2x" aria-hidden="true"></i></a>
+        <a class="btn btn-icon my-2 my-sm-0" href="https://www.facebook.com/NCWebDesignSchool/" target="_blank" (click)="toggle(true)"><i class="fa fa-facebook-official fa-2x" aria-hidden="true"></i></a>
     </div>
 </nav>

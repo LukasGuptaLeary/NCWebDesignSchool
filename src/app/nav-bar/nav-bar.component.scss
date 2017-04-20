@@ -3,9 +3,11 @@
   color: #ffffff !important;
   outline: none !important;
   box-shadow: none !important;
-  i {
-    position: relative;
-    top: 50%;
-    transform: translateY(-50%);
+  @media (min-width: 992px) {
+    i {
+      position: relative;
+      top: 50%;
+      transform: translateY(-50%);
+    }
   }
 }
